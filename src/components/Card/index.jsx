@@ -37,23 +37,7 @@ function Card ({name, image, likes, title, text, _id}) {
             })
     }
 
-    const buy = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        setBasket(prev => {
-            const test = prev.filter(el => el.id === _id)
-            if (test.length) {
-                return prev.map(el => {
-                    if (el.id === _id) {
-                        el.cnt++;
-                    }
-                    return el;
-                })
-            } else {
-                return [...prev, {id: _id, cnt: 1}]
-            }
-        })
-    }
+    
 
     // useEffect(() => {
     //     console.log(like, flag);

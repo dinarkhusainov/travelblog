@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import {Row, Col, Form, Button} from "react-bootstrap";
 import Ctx from "../Ctx";
 
-function AddForm () {
+function AddPost () {
     
     const [title, setTitle] = useState("");
     const [text, setText] = useState("");
@@ -12,7 +12,7 @@ function AddForm () {
     
 
     const {api, PATH, setGoods} = useContext(Ctx);
-    //const navigate = useNavigate();
+    const navigate = useNavigate();
     const handler = (e) => {
         e.preventDefault();
         let body = {
@@ -29,7 +29,7 @@ function AddForm () {
                 if (!data.error) {
                     setGoods(prev => [...prev, data]);
                     clear();
-                    //navigate(`${PATH}catalog/${data._id}`);
+                    navigate(`${PATH}/posts/${data._id}`);
                 }
             })
         
@@ -95,4 +95,4 @@ function AddForm () {
     </>
 }
 
-export default AddForm;
+export default AddPost;

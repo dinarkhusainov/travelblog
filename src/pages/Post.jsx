@@ -11,7 +11,7 @@ export default ({}) => {
     const {api, PATH, user, setGoods} = useContext(Ctx);
     const navigate = useNavigate();
     useEffect(() => {
-        api.getProduct(id)
+        api.getPost(id)
             .then(res => res.json())
             .then(data => {
                 setProduct(data);
@@ -31,11 +31,12 @@ export default ({}) => {
                 console.log(data);
                 if (!data.error) {
                     setGoods(prev => prev.filter(g => g._id !== data._id))
-                    navigate(`${PATH}catalog`);
+                    navigate(`${PATH}/posts`);
                 }
             })
     }
     return <>
+    <Link to={PATH + "posts"}>Назад</Link>
         {product && product.author && product.author._id === user._id && <button 
             onClick={remove} 
             className="btn" 
@@ -43,12 +44,16 @@ export default ({}) => {
         >
             <Trash3/>
         </button>}
-        <h1>{product.name || "Страница товара"}</h1>
-        <p>{id}</p>
-        <Link to={PATH + "catalog"}>Назад</Link>
-        <h2>Отывы</h2>
+        <h1>{product.title || "Страница товара"}</h1>
+        <img
+            className="product-block__image"
+            src={product.image}
+            alt="product"
+        />
+        <p>{product.text}</p>
+        <h2>Комментарии</h2>
         <div className="reviews">
-            {product.reviews && product.reviews.length > 0 && product.reviews.map((el, i) => <Review {...el} key={i}/>)}
+            {product.comments && product.comments.length > 0 && product.comments.map((el, i) => <Review {...el} key={i}/>)}
         </div>
     </>
 }

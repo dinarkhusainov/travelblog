@@ -82,14 +82,14 @@ class Api {
         })
     }
     getPost(id) {
-        return fetch(`${this.path}posts/${id}`, {
+        return fetch(`${this.path}/posts/${id}`, {
             headers: {
                 "authorization" : `Bearer ${this.token}`
             }
         })
     }
     deletePost(id) {
-        return fetch(`${this.path}posts/${id}`, {
+        return fetch(`${this.path}/posts/${id}`, {
             method: "delete",
             headers: {
                 "authorization" : `Bearer ${this.token}`

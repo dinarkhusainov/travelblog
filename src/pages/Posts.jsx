@@ -66,7 +66,7 @@ function Posts ({data})  {
                     <Pagination hook={paginate}/>
                     <div className="cards">
                         {/* Опасно! Работают профи, не пытайтесь повторить это сами!  */}
-                        {paginate.setPageData().map((el, i) => <Link to={`/catalog/${el._id}`} key={el._id}>
+                        {paginate.setPageData().map((el, i) => <Link to={`/posts/${el._id}`} key={el._id}>
                             <Card key={"card_" + i} {...el}/>
                         </Link>)}
                     </div>

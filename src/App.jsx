@@ -12,12 +12,13 @@ import Modal from "./components/Modal";
 import Home from "./pages/Home.jsx";
 import Posts from "./pages/Posts.jsx";
 import Profile from "./pages/Profile";
-import Product from "./pages/Product";
-import AddForm from "./pages/AddForm";
+import Product from "./pages/Post";
+import AddPost from "./pages/AddPost";
 import Favorites from "./pages/Favorites";
 
 import {Api} from "./Api";
 import Ctx from "./Ctx";
+import Post from "./pages/Post";
 
 
 const PATH = "/";
@@ -77,7 +78,6 @@ const App = () => {
 
     useEffect(() => {
         setFavorites(goods.filter(el => {
-            // Найти только те товары, в которых свойство likes ([]) включает в себя id моего пользователя
             return el.likes && el.likes.includes(user._id);
         }))
     }, [goods])
@@ -112,21 +112,14 @@ const App = () => {
                         <Route path={PATH} element={<Home />}/>
                         <Route path={PATH + "posts"} element={<Posts />}/>
                         <Route path={PATH + "profile"} element={<Profile/>}/>
-                        <Route path={PATH + "catalog/:id"} element={<Product/>}/>
-                        <Route path={PATH + "add"} element={<AddForm/>}/>
+                        <Route path={PATH + "posts/:id"} element={<Post/>}/>
+                        <Route path={PATH + "add"} element={<AddPost/>}/>
                         <Route path={PATH + "favorites"} element={<Favorites/>}/>
                     </Routes>
-                    {/* <ul>
-                        {setGoods.map((el,i) => <li key={el}>
-                        </li>)}
-                    </ul> */}
+                    
                 </main>
                 <Footer/>
             </div>
-            {/* 
-                isActive, setState - параметры, которые работают внутри компонента Modal
-                modalActive, setModalActive - значения, которые сохраняются внутри параметров
-            */}
             <Modal/>
         </Ctx.Provider>
     )
