@@ -12,14 +12,10 @@ function AddForm () {
     
 
     const {api, PATH, setGoods} = useContext(Ctx);
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
     const handler = (e) => {
         e.preventDefault();
         let body = {
-            // price: price || 0,
-            // wight: wight || "unknown",
-            // stock: stock || 0,
-            // discount: discount,
             title: title || "Название отсутствует",
             text: text || "Здесь скоро появится описание поста",
             tags:tags || ["travelblog23"],
@@ -91,53 +87,9 @@ function AddForm () {
                         <Button variant={"warning"} type="submit">
                             Добавить
                         </Button>
-                    
-                    {/* <Form.Group className="mb-3">
-                        <Form.Label>Цена</Form.Label>
-                        <Form.Control
-                        type="number"
-                        value={price}
-                        onChange={e => setPrice(e.target.value)}
-                        step="10"
-                        min={0}
-                        />
-                    </Form.Group> */}
-                    {/* <Form.Group className="mb-3">
-                        <Form.Label>Вес</Form.Label>
-                        <Form.Control
-                        type="text"
-                        value={wight}
-                        placeholder="100 г"
-                        onChange={e => setWight(e.target.value)}
-                        />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                        <Form.Label>Скидка</Form.Label>
-                        <Form.Select
-                        value={discount}
-                        onChange={e => setDiscount(e.target.value)}
-                        >
-                        <option value={0}>Без скидки</option>
-                        <option value={5}>5%</option>
-                            <option value={10}>10%</option>
-                            <option value={15}>15%</option>
-                            <option value={20}>20%</option>
-                            <option value={25}>25%</option>
-                            </Form.Select>
-                            </Form.Group>
-                            <Form.Group className="mb-3">
-                            <Form.Label>Количество</Form.Label>
-                            <Form.Control
-                            type="number"
-                            value={stock}
-                            onChange={e => setStock(e.target.value)}
-                            min={0}
-                            />
-                        </Form.Group> */}
-                        </Form.Group>
-                                </Col>
-                <Col xs={12} md={6}>
+                    </Form.Group>
                 </Col>
+                <Col xs={12} md={6}></Col>
             </Row>
         </Form>
     </>
