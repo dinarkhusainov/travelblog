@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+a:hover {
+    color: inherit;
+}
+.wrapper {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 100px auto 50px;
+}
+.wrapper>* {
+    padding: 0 calc(50% - 600px);
+}
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2em;
+    align-items: stretch;
+}
+@media (max-width: 1260px) {
+    .wrapper>* {
+        padding: 0 30px;
+    }
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.empty-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+    justify-content: center;
+}
+/* .empty-block>*:not(svg) {
+    font-size: 1rem;
+} */
+.empty-block svg {
+    font-size: 4rem;
+    fill: #dedede;
+}
+.empty-block .btn {
+    border: 1px solid #dedede;
+    border-radius: 18px;
+    display: flex;
+    padding: 6px 12px;
+}
+
+.form-preview {
+    height: 106px;
+    background-size: contain;
+    background-position: top right;
+    background-repeat: no-repeat;
+}
+.profile-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.profile-row svg {
+    cursor: pointer;
+    fill: silver; 
+}
+.profile-row svg:hover {
+    cursor: pointer;
+    fill: orange;
+}
+.profile-row:not(:nth-child(2)) {
+    color: grey;
+}
+.profile-row input {
+    max-width: 300px;
+}
+.btn.sort {
+    background-color: #222; 
+    color: orange;
+}

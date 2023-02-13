@@ -1,0 +1,14 @@
+footer {
+    background-color: #599eb9;
+    color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.footer__copy {
+    font-size: 1.5em;
+}
+.footer__text {
+    text-align: right;
+}

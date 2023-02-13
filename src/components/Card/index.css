@@ -1,0 +1,24 @@
+.card {
+    box-shadow: 0 0 5px #2226;
+    border-radius: 1em;
+    padding: 1em;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100px auto 30px 40px;
+    position: relative;
+    gap: 1em;
+    justify-items: center;
+    align-items: flex-start;
+    height: 100%;
+    text-align: center;
+}
+.card__heart {
+    position: absolute;
+    top: .5em;
+    right: 1em;
+    color: crimson;
+}
+.card>.btn {
+    width: max-content;
+}

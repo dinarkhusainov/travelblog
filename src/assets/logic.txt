@@ -1,0 +1,32 @@
+Загрузка сайта:
+    1) Проверка пользователя (localStorage) => Вход / Личный кабинет (Header)
+    2) Проверка наличия токена (localStorage) => Загрузка товаров с сервера => Отбразить товары
+    3) Токена нет
+        Можно войти
+        Можно смотреть главную страницу
+        
+    4) Вход => Приходят данные о пользователе + token
+    5) Есть user => меняется Header
+    6) Есть токен => меняется весь сайта
+    7) Кнопка выхода удаляет все данные о пользователе в localStorage
+
+    User создается в App, изменяется в Header и Login(Modal)
+    Token создается в App, изменяется в Header и Login(Modal)
+
+
+SPA Single page application
+Установка роутеров для React
+npm install react-router react-router-dom
+Сайт https://reactrouter.com/en/main/start/tutorial
+
+
+627aa2b8fd97250691ade93f
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjdhYTJiOGZkOTcyNTA2OTFhZGU5M2YiLCJpYXQiOjE2NzIyNDYyMzAsImV4cCI6MTcwMzc4MjIzMH0.vW4otU-lZUgZ63Xz-dCAzt85pJFXObrdKdP_V0lGc5E
+
+
+TODO:
+    +Поставить лайки
+    +Личный кабинет (фотки)
+    Страница товара
+    +Теги (фильтрация)
+

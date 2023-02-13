@@ -1,0 +1,22 @@
+header {
+    background-color: lightskyblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    font-size: 1.5em;
+}
+
+.search {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #222;
+    outline: none;
+}
+.search:focus {
+    border-bottom-color: #ffffff;
+}
+.menu {
+    display: flex;
+    gap: 1em;
+}
