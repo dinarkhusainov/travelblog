@@ -38,7 +38,7 @@ const App = () => {
             api.getPosts()
                 .then(res => res.json())
                 .then(data => {
-                    //setPosts(data.products);
+                    //setPosts(data.messages);
                     console.log(data)
                 })
         }

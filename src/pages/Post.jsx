@@ -6,7 +6,7 @@ import Ctx from "../Ctx";
 
 export default function Post ({}) {
     const {id} = useParams();
-    const [product, setProduct] = useState({});
+    const [message, setMessage] = useState({});
     // По id товара получаются данные о товаре для отрисовки страницы с товаром
     const {api, PATH, user, setPosts} = useContext(Ctx);
     const navigate = useNavigate();
@@ -14,7 +14,7 @@ export default function Post ({}) {
         api.getPost(id)
             .then(res => res.json())
             .then(data => {
-                setProduct(data);
+                setMessage(data);
             })
     }, []);
     const btnSt = {
@@ -25,35 +25,35 @@ export default function Post ({}) {
         height: "auto"
     }
     const remove = () => {
-        api.delProduct(id)
+        api.deletePost(id)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
                 if (!data.error) {
                     setPosts(prev => prev.filter(g => g._id !== data._id))
-                    navigate(`${PATH}/posts`);
+                    navigate(`${PATH}posts`);
                 }
             })
     }
     return <>
     <Link to={PATH + "posts"}>Назад</Link>
-        {product && product.author && product.author._id === user._id && <button 
+        {message && message.author && message.author._id === user._id && <button 
             onClick={remove} 
             className="btn" 
             style={btnSt}
         >
             <Trash3/>
         </button>}
-        <h1>{product.title || "Страница товара"}</h1>
+        <h1>{message.title || "Страница товара"}</h1>
         <img
             className="product-block__image"
-            src={product.image}
-            alt="product"
+            src={message.image}
+            alt="message"
         />
-        <p>{product.text}</p>
+        <p>{message.text}</p>
         <h2>Комментарии</h2>
         <div className="reviews">
-            {product.comments && product.comments.length > 0 && product.comments.map((el, i) => <Comments {...el} key={i}/>)}
+            {message.comments && message.comments.length > 0 && message.comments.map((el, i) => <Comments {...el} key={i}/>)}
         </div>
     </>
 }

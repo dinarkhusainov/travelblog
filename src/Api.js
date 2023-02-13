@@ -23,23 +23,7 @@ class Api {
             body: JSON.stringify(body)
         });
     }
-    
-    delProduct(id) {
-        return fetch(`${this.path}/products/${id}`, {
-            method: "DELETE",
-            headers: {
-                "authorization": `Bearer ${this.token}`
-            }
-        })
-    }
-    setLike(id, isLike) {
-        return fetch(`${this.path}/products/likes/${id}`, {
-            method: isLike ? "DELETE" : "PUT",
-            headers: {
-                "authorization": `Bearer ${this.token}`
-            }
-        })
-    }
+   
     updUser(body, img = false) {
         return fetch(`${this.path}/v2/${this.group}/users/me${img ? "/avatar" : ""}`, {
             method: "PATCH",
@@ -125,9 +109,9 @@ class Api {
             }
         })
     }
-    setLikePost(id, isLike) {
+    setLikePost(id, like) {
         return fetch(`${this.path}/posts/likes/${id}`, {
-            method: isLike ? "delete" : "put",
+            method: like ? "delete" : "put",
             headers: {
                 "authorization" : `Bearer ${this.token}`
             }

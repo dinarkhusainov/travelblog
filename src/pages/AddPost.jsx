@@ -29,7 +29,7 @@ function AddPost () {
                 if (!data.error) {
                     setPosts(prev => [...prev, data]);
                     clear();
-                    navigate(`${PATH}/posts/${data._id}`);
+                    navigate(`${PATH}posts/${data._id}`);
                 }
             })
         

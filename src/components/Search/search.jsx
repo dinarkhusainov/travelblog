@@ -18,9 +18,9 @@ export default () => {
         setVisiblePosts(posts);
     }
     const search = (e) => {
-        navigate(PATH +"catalog");
+        navigate(PATH +"posts");
         updateText(e.target.value);
-        let arr = posts.filter(el => el.name.toLowerCase().includes(e.target.value.toLowerCase()))
+        let arr = posts.filter(el => el.title.toLowerCase().includes(e.target.value.toLowerCase()))
         setSearchData(arr);
         setVisiblePosts(arr);
     }

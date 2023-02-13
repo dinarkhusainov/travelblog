@@ -11,7 +11,7 @@ function Card ({name, image, likes, title, text, _id}) {
         e.preventDefault();
         setFlag(true);
         setLike(!like); // false => true
-        api.setLike(_id, like) // false
+        api.setLikePost(_id, like) // false
             .then(res => res.json())
             .then(data => {
                 setFavorites(prev => {
@@ -42,12 +42,12 @@ function Card ({name, image, likes, title, text, _id}) {
     // useEffect(() => {
     //     console.log(like, flag);
     //     if (flag) {
-    //         api.getProducts()
+    //         api.getMessages()
     //         .then(res => res.json())
     //         .then(data => {
     //             console.log(data);
     //             if (!data.error) {
-    //                 setPosts(data.products);
+    //                 setPosts(data.messages);
     //             }
     //         })
     //     }
@@ -57,7 +57,6 @@ function Card ({name, image, likes, title, text, _id}) {
         <img src={image} alt={name} style={{height: "100px"}}/>
         {title}
         <p>{text}</p>
-        {/* <button className="btn" onClick={buy}>Купить</button> */}
         <span className="card__heart" onClick={update}>
             {
                 like 

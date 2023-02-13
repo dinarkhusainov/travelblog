@@ -16,9 +16,7 @@ function Header ()  {
     return <header>
         <Link className="logo" to={PATH}>TRAVEL BLOG</Link>
         <Search/>
-        {/* <input type="search" placeholder="Поиск..." className="search"/> */}
         <nav className="menu">
-            {/* true && true */}
             {user && <Link to={PATH + "add"}><PlusCircle style={{fontSize: "20px"}}/></Link>}
             {user && <Link to={PATH + "favorites"} className="badge-link">
                 <HeartFill style={{fontSize: "20px"}}/>
