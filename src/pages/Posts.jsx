@@ -15,6 +15,7 @@ function Posts ({data})  {
         display: "flex",
         gap: "10px"
     }
+    
     const updSort = (e) => {
         let el = e.currentTarget;
         let flag = false;
@@ -29,19 +30,17 @@ function Posts ({data})  {
         if (flag) {
             setSortPosts(visiblePosts);
         } else {
+            
             let data = [...visiblePosts];
             switch (el.title) {
                 case "down": 
-                    data.sort((a,b) => a.price - b.price);
+                    data.sort((a,b) => a.title - b.title);
                     break;
                 case "up": 
-                    data.sort((a,b) => b.price - a.price);
+                    data.sort((a,b) => b.title - a.title);
                     break;
                 case "new": 
                     data = data.filter(d => d.tags.includes("new"));
-                    break;
-                case "sale": 
-                    data = data.filter(d => d.discount > 0);
                     break;
             }
             setSortPosts(data);
@@ -56,16 +55,14 @@ function Posts ({data})  {
         {user && <>
             {visiblePosts.length > 0 
                 ? <>
-                    <h1>Каталог товаров</h1>
+                    <h1>Все посты</h1>
                     <div style={st}>
-                        <button className={`btn ${btnType === "up" ? "sort" : ""}`} title="up" onClick={updSort}><SortNumericUp/> цены</button>
-                        <button className={`btn ${btnType === "down" ? "sort" : ""}`} title="down" onClick={updSort}><SortNumericDown/> цены</button>
+                        <button className={`btn ${btnType === "up" ? "sort" : ""}`} title="up" onClick={updSort}><SortNumericUp/> А-Я</button>
+                        <button className={`btn ${btnType === "down" ? "sort" : ""}`} title="down" onClick={updSort}><SortNumericDown/> Я-А </button>
                         <button className={`btn ${btnType === "new" ? "sort" : ""}`} title="new" onClick={updSort}>Новинки</button>
-                        <button className={`btn ${btnType === "sale" ? "sort" : ""}`} title="sale" onClick={updSort}>Скидка</button>
                     </div>
                     <Pagination hook={paginate}/>
                     <div className="cards">
-                        {/* Опасно! Работают профи, не пытайтесь повторить это сами!  */}
                         {paginate.setPageData().map((el, i) => <Link to={`/posts/${el._id}`} key={el._id}>
                             <Card key={"card_" + i} {...el}/>
                         </Link>)}

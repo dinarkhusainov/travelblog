@@ -7,5 +7,4 @@ export default () => {
         <h1>Fake page {n}</h1>
         <strong>{title}</strong>
     </>
-    // https://cats.petiteweb.dev/doc?name=cat&title=hello&id=2
 }

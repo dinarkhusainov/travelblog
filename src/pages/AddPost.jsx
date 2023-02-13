@@ -8,7 +8,7 @@ function AddPost () {
     const [title, setTitle] = useState("");
     const [text, setText] = useState("");
     const [image, setImage] = useState("");
-    const [tags, setTags] = useState(["travelblog23"]);
+    const [tags, setTags] = useState("");
     
 
     const {api, PATH, setPosts} = useContext(Ctx);
@@ -18,7 +18,7 @@ function AddPost () {
         let body = {
             title: title || "Название отсутствует",
             text: text || "Здесь скоро появится описание поста",
-            tags:tags || ["travelblog23"],
+            tags: [tags, "travelblog23"] || ["travelblog23"],
             image: image || "https://www.chanchao.com.tw/images/default.jpg"
         }
         console.log(body);
@@ -38,7 +38,7 @@ function AddPost () {
         setTitle("");
         setText("");
         setImage("");
-        setTags(["travelblog23"]);
+        setTags("");
     }
     return <>
         <h1>Создать пост</h1>
@@ -54,8 +54,7 @@ function AddPost () {
                         />
 
                         <Form.Group className="mb-3">
-                            {/* тут вопрос есть по тегу */}
-                        <Form.Label>Добавить тег</Form.Label>
+                        <Form.Label>Добавьте теги через запятую</Form.Label>
                         <Form.Control
                             value={tags}
                             onChange={e => setTags(e.target.value)}

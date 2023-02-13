@@ -38,8 +38,7 @@ const App = () => {
             api.getPosts()
                 .then(res => res.json())
                 .then(data => {
-                    //setPosts(data.messages);
-                    console.log(data)
+                    setPosts(data.filter(d => d.tags.includes("travelblog23")));
                 })
         }
     }, []) 
@@ -65,9 +64,8 @@ const App = () => {
             api.getPosts()
                 .then(res => res.json())
                 .then(data => {
-                    setVisiblePosts(data);
-                    setPosts(data);
-                    console.log ('api', setPosts)
+                    setVisiblePosts(data.filter(d => d.tags.includes("travelblog23")));
+                    setPosts(data.filter(d => d.tags.includes("travelblog23")));
                 })
         }
     }, [api])

@@ -7,7 +7,6 @@ import Ctx from "../Ctx";
 export default function Post ({}) {
     const {id} = useParams();
     const [message, setMessage] = useState({});
-    // По id товара получаются данные о товаре для отрисовки страницы с товаром
     const {api, PATH, user, setPosts} = useContext(Ctx);
     const navigate = useNavigate();
     useEffect(() => {
@@ -45,8 +44,8 @@ export default function Post ({}) {
             <Trash3/>
         </button>}
         <h1>{message.title || "Страница товара"}</h1>
+        {/* <p>Автор: {message.author.name}</p> */}
         <img
-            className="product-block__image"
             src={message.image}
             alt="message"
         />
