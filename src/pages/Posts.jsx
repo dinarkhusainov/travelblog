@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from "react";
-import Card from "../components/Card";
+import Card from "../components/Card/Card";
 import {Link} from "react-router-dom";
 import {EmojiFrown, SortNumericDown, SortNumericUp} from "react-bootstrap-icons";
 import Ctx from "../Ctx";
@@ -7,9 +7,9 @@ import usePagination from "../hooks/usePagination";
 import Pagination from "../components/Pagination";
 
 function Posts ({data})  {
-    const {visibleGoods, user, PATH} = useContext(Ctx);
-    const [sortGoods, setSortGoods] = useState(visibleGoods);
-    const paginate = usePagination(sortGoods, 12);
+    const {visiblePosts, user, PATH} = useContext(Ctx);
+    const [sortPosts, setSortPosts] = useState(visiblePosts);
+    const paginate = usePagination(sortPosts, 12);
     const [btnType, setBtnType] = useState("");
     let st = {
         display: "flex",
@@ -27,9 +27,9 @@ function Posts ({data})  {
             setBtnType(el.title);
         }
         if (flag) {
-            setSortGoods(visibleGoods);
+            setSortPosts(visiblePosts);
         } else {
-            let data = [...visibleGoods];
+            let data = [...visiblePosts];
             switch (el.title) {
                 case "down": 
                     data.sort((a,b) => a.price - b.price);
@@ -44,17 +44,17 @@ function Posts ({data})  {
                     data = data.filter(d => d.discount > 0);
                     break;
             }
-            setSortGoods(data);
+            setSortPosts(data);
         }
     }
     useEffect(() => {
-        if (sortGoods.length === 0) {
-            setSortGoods(visibleGoods);
+        if (sortPosts.length === 0) {
+            setSortPosts(visiblePosts);
         }
-    }, [visibleGoods]); 
+    }, [visiblePosts]); 
     return <>
         {user && <>
-            {visibleGoods.length > 0 
+            {visiblePosts.length > 0 
                 ? <>
                     <h1>Каталог товаров</h1>
                     <div style={st}>

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default ({author, text, created_at}) => {
+function Comments ({author, text, created_at})  {
    
     return <>
         <h3>{author || ""}</h3>
@@ -8,3 +8,4 @@ export default ({author, text, created_at}) => {
         <div>{new Date(created_at).toLocaleString()}</div>
     </>
 }
+export default Comments;

@@ -6,23 +6,23 @@ import {ReactComponent as CloseImg} from "./img/circle-xmark-regular.svg";
 import Ctx from "../../Ctx";
 
 export default () => {
-    // data => goods
-    // searchGoods => setVisibleGoods
+    // data => posts
+    // searchPosts => setVisiblePosts
     const navigate = useNavigate();
-    const {goods, setVisibleGoods, PATH} = useContext(Ctx);
+    const {posts, setVisiblePosts, PATH} = useContext(Ctx);
     const [text, updateText] = useState("");
-    const [searchData, setSearchData] = useState(goods);
+    const [searchData, setSearchData] = useState(posts);
     const clearSearch = () => {
         updateText("");
-        setSearchData(goods);
-        setVisibleGoods(goods);
+        setSearchData(posts);
+        setVisiblePosts(posts);
     }
     const search = (e) => {
         navigate(PATH +"catalog");
         updateText(e.target.value);
-        let arr = goods.filter(el => el.name.toLowerCase().includes(e.target.value.toLowerCase()))
+        let arr = posts.filter(el => el.name.toLowerCase().includes(e.target.value.toLowerCase()))
         setSearchData(arr);
-        setVisibleGoods(arr);
+        setVisiblePosts(arr);
     }
     return <div className="search-block">
         <input placeholder="Поиск..." value={text} onChange={search}/>

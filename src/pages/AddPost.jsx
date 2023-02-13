@@ -11,7 +11,7 @@ function AddPost () {
     const [tags, setTags] = useState(["travelblog23"]);
     
 
-    const {api, PATH, setGoods} = useContext(Ctx);
+    const {api, PATH, setPosts} = useContext(Ctx);
     const navigate = useNavigate();
     const handler = (e) => {
         e.preventDefault();
@@ -27,7 +27,7 @@ function AddPost () {
             .then(data => {
                 console.log(data);
                 if (!data.error) {
-                    setGoods(prev => [...prev, data]);
+                    setPosts(prev => [...prev, data]);
                     clear();
                     navigate(`${PATH}/posts/${data._id}`);
                 }

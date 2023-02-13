@@ -1,11 +1,7 @@
 import React, {useState} from "react";
 
-export default (data, cnt) => {
-    /*
-        ["", "", "", "", ""]
-        cnt = 2
-        pages = 3
-    */
+function Pagination (data, cnt)  {
+   
     const [currentPage, setCurrentPage] = useState(1);
     const maxPage = Math.ceil(data.length / cnt);
 
@@ -21,7 +17,6 @@ export default (data, cnt) => {
         setCurrentPage(page);
     }
     const setPageData = () => {
-        // 0 - 11, 12 - 23, 24 - 35
         let start = (currentPage - 1) * cnt;
         let end = start + cnt;
         return data.slice(start, end);
@@ -29,3 +24,4 @@ export default (data, cnt) => {
     
     return {currentPage, maxPage, next, previous, step, setPageData};
 }
+ export default Pagination;

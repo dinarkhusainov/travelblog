@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useContext } from "react";
 import {useParams, Link, useNavigate, Navigate} from "react-router-dom";
 import {Trash3} from "react-bootstrap-icons";
-import Review from "../components/Review/review";
+import Comments from "../components/Comments/Comments";
 import Ctx from "../Ctx";
 
-export default ({}) => {
+export default function Post ({}) {
     const {id} = useParams();
     const [product, setProduct] = useState({});
     // По id товара получаются данные о товаре для отрисовки страницы с товаром
-    const {api, PATH, user, setGoods} = useContext(Ctx);
+    const {api, PATH, user, setPosts} = useContext(Ctx);
     const navigate = useNavigate();
     useEffect(() => {
         api.getPost(id)
@@ -30,7 +30,7 @@ export default ({}) => {
             .then(data => {
                 console.log(data);
                 if (!data.error) {
-                    setGoods(prev => prev.filter(g => g._id !== data._id))
+                    setPosts(prev => prev.filter(g => g._id !== data._id))
                     navigate(`${PATH}/posts`);
                 }
             })
@@ -53,7 +53,7 @@ export default ({}) => {
         <p>{product.text}</p>
         <h2>Комментарии</h2>
         <div className="reviews">
-            {product.comments && product.comments.length > 0 && product.comments.map((el, i) => <Review {...el} key={i}/>)}
+            {product.comments && product.comments.length > 0 && product.comments.map((el, i) => <Comments {...el} key={i}/>)}
         </div>
     </>
 }

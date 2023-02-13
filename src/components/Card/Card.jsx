@@ -1,9 +1,9 @@
 import React, {useContext, useState, useEffect} from "react";
-import "./index.css";
+import "./card.css";
 import Ctx from "../../Ctx";
 
 function Card ({name, image, likes, title, text, _id}) {
-    const {user, setFavorites, api, setGoods, setBasket, setVisibleGoods} = useContext(Ctx);
+    const {user, setFavorites, api, setPosts, setVisiblePosts} = useContext(Ctx);
     const [like, setLike] = useState(likes && likes.includes(user._id));
     const [flag, setFlag] = useState(false);
     const update = (e) => {
@@ -20,14 +20,14 @@ function Card ({name, image, likes, title, text, _id}) {
                         prev.filter(el => el._id !== _id) : 
                         [...prev, data]
                 })
-                setGoods(prev => prev.map(el => {
+                setPosts(prev => prev.map(el => {
                     if (el._id === data._id) {
                         return data;
                     } else {
                         return el;
                     }
                 }));
-                setVisibleGoods(prev => prev.map(el => {
+                setVisiblePosts(prev => prev.map(el => {
                     if (el._id === data._id) {
                         return data;
                     } else {
@@ -47,7 +47,7 @@ function Card ({name, image, likes, title, text, _id}) {
     //         .then(data => {
     //             console.log(data);
     //             if (!data.error) {
-    //                 setGoods(data.products);
+    //                 setPosts(data.products);
     //             }
     //         })
     //     }

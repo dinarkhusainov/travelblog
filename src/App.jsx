@@ -1,9 +1,7 @@
 import React, {useState, useEffect} from "react";
-// Router - маршрут
 import {Routes, Route} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
-// import products from "./assets/data.json";
 
 import Header from "./components/Header/header";
 import Footer from "./components/Footer/footer";
@@ -12,7 +10,6 @@ import Modal from "./components/Modal";
 import Home from "./pages/Home.jsx";
 import Posts from "./pages/Posts.jsx";
 import Profile from "./pages/Profile";
-import Product from "./pages/Post";
 import AddPost from "./pages/AddPost";
 import Favorites from "./pages/Favorites";
 
@@ -32,17 +29,16 @@ const App = () => {
     const [token, setToken] = useState(localStorage.getItem("token8"));
     const [modalActive, setModalActive] = useState(false);
     const [api, setApi] = useState(new Api(token));
-    const [goods, setGoods] = useState([]);
-    const [visibleGoods, setVisibleGoods] = useState(goods);
+    const [posts, setPosts] = useState([]);
+    const [visiblePosts, setVisiblePosts] = useState(posts);
     const [favorites, setFavorites] = useState([]);
-    const [basket, setBasket] = useState(localStorage.getItem("basket8") ? JSON.parse(localStorage.getItem("basket8")) : []);
 
     useEffect(() => {
         if (token) {
             api.getPosts()
                 .then(res => res.json())
                 .then(data => {
-                    //setGoods(data.products);
+                    //setPosts(data.products);
                     console.log(data)
                 })
         }
@@ -69,41 +65,36 @@ const App = () => {
             api.getPosts()
                 .then(res => res.json())
                 .then(data => {
-                    setVisibleGoods(data);
-                    setGoods(data);
-                    console.log ('api', setGoods)
+                    setVisiblePosts(data);
+                    setPosts(data);
+                    console.log ('api', setPosts)
                 })
         }
     }, [api])
 
     useEffect(() => {
-        setFavorites(goods.filter(el => {
+        setFavorites(posts.filter(el => {
             return el.likes && el.likes.includes(user._id);
         }))
-    }, [goods])
+    }, [posts])
 
-    useEffect(() => {
-        localStorage.setItem("basket8", JSON.stringify(basket));
-    }, [basket]);
     return (
         <Ctx.Provider value={{
             user: user,
             token: token,
             api: api,
             modalActive: modalActive,
-            goods: goods,
-            visibleGoods: visibleGoods,
+            posts: posts,
+            visiblePosts: visiblePosts,
             favorites: favorites,
             setUser: setUser,
             setToken: setToken,
             setApi: setApi,
             setModalActive: setModalActive,
-            setGoods: setGoods,
-            setVisibleGoods: setVisibleGoods,
+            setPosts: setPosts,
+            setVisiblePosts: setVisiblePosts,
             setFavorites: setFavorites,
             PATH: PATH,
-            basket,
-            setBasket
         }}>
             <div className="wrapper">
                 <Header/>
