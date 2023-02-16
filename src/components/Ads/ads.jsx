@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./ads.css";
 import pic1 from "../../assets/img/girl.jpg";
 import pic2 from "../../assets/img/boatle.jpg";
@@ -12,15 +13,15 @@ export default function Ads () {
         <img src={pic1} alt="Девушка и самолет" />
     </div>
     <div className="promo">
-        <img src={pic2} alt="Лодка" />
+        <Link to={"/"}><img src={pic2} alt="Лодка" /></Link>
     </div>
     <div className="promo">
-        <img src={pic3} alt="Палатка" />
+        <Link to={"/"}><img src={pic3} alt="Палатка" /></Link>
     </div>
     <div className="promo">
-        <img src={pic4} alt="Горы" />
+        <Link to={"/"}><img src={pic4} alt="Горы" /></Link>
     </div>
     <div className="promo">
-        <img src={pic5} alt="Пляж" />
+        <Link to={"/"}><img src={pic5} alt="Пляж" /></Link>
     </div>
 </>}

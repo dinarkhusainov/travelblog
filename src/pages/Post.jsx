@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import {useParams, Link, useNavigate, Navigate} from "react-router-dom";
+import {useParams, Link, useNavigate} from "react-router-dom";
 import {Trash3, ArrowLeftSquareFill} from "react-bootstrap-icons";
 import Comments from "../components/Comments/Comments";
 import Ctx from "../Ctx";
