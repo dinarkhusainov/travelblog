@@ -7,7 +7,6 @@ import pic3 from "../../assets/img/palatka.jpg";
 import pic4 from "../../assets/img/gory.jpg";
 import pic5 from "../../assets/img/sea.jpg";
 
-
 export default function Ads () {
     return <> <div className="promo">
         <img src={pic1} alt="Девушка и самолет" />
