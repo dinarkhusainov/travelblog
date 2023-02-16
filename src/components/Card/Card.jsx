@@ -1,6 +1,7 @@
-import React, {useContext, useState, useEffect} from "react";
+import React, {useContext, useState, } from "react";
 import "./card.css";
 import Ctx from "../../Ctx";
+import {BookmarkHeart,BookmarkHeartFill} from "react-bootstrap-icons"
 
 function Card ({name, image, likes, title, text, _id}) {
     const {user, setFavorites, api, setPosts, setVisiblePosts} = useContext(Ctx);
@@ -37,31 +38,15 @@ function Card ({name, image, likes, title, text, _id}) {
             })
     }
 
-    
-
-    // useEffect(() => {
-    //     console.log(like, flag);
-    //     if (flag) {
-    //         api.getMessages()
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data);
-    //             if (!data.error) {
-    //                 setPosts(data.messages);
-    //             }
-    //         })
-    //     }
-    // }, [like]) // true
 
     return <div className="card">
-        <img src={image} alt={name} style={{height: "100px"}}/>
-        {title}
-        <p>{text}</p>
+        <img  src={image} alt={name} />
+        <h1>{title}</h1>
         <span className="card__heart" onClick={update}>
             {
                 like 
-                ? <i className="fa-solid fa-heart"></i>
-                : <i className="fa-regular fa-heart"></i>
+                 ? <BookmarkHeartFill/>
+                : <BookmarkHeart/>
             }
         </span>
     </div>

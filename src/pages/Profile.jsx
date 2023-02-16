@@ -1,6 +1,6 @@
 import React, {useContext, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import {PencilSquare, XSquare, CheckSquare} from "react-bootstrap-icons";
+import {PencilSquare, XSquare, CheckSquare, PersonCircle} from "react-bootstrap-icons";
 import {Row, Col, Form, Image} from "react-bootstrap";
 import Ctx from "../Ctx";
 
@@ -46,11 +46,13 @@ export default () => {
     }
     return <Row>
         <Col xs={12} md={8}>
-            <h1>Личный кабинет</h1>
+            <h1 style={{display: "flex", alignItems:"center", fontSize: "20px"}}>
+                <PersonCircle/> Личный кабинет 
+            </h1>
             <p className="profile-row">
                 {!nameFlag 
                     ? <>
-                        <span className="display-2">{name}</span>
+                        <span className="display-3">{name}</span>
                         <PencilSquare onClick={() => setNameFlag(true)}/>
                     </>
                     : <>

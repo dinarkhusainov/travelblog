@@ -44,7 +44,7 @@ function AddPost () {
         <h1>Создать пост</h1>
         <Form onSubmit={handler}>
             <Row>
-                <Col xs={12} md={6}>
+                <Col xs={12} md={8}>
                     <Form.Group className="mb-3">
                         <Form.Label>Название поста</Form.Label>
                         <Form.Control
@@ -53,42 +53,45 @@ function AddPost () {
                             onChange={e => setTitle(e.target.value)}
                         />
 
-                        <Form.Group className="mb-3">
+                    </Form.Group>
+                    <Form.Group className="mb-3">
                         <Form.Label>Добавьте теги через запятую</Form.Label>
                         <Form.Control
                             value={tags}
                             onChange={e => setTags(e.target.value)}
-                            />
+                    />
                     </Form.Group>
-
-                        <Form.Group className="mb-3">
-                            <div className="form-preview mb-1" style={{
-                                backgroundImage: image ?
-                                    `url(${image})` :
-                                    "url(https://www.chanchao.com.tw/images/default.jpg)"
-                            }}/>
-                            <Form.Label>Изображение поста</Form.Label>
-                            <Form.Control
-                                type="url"
-                                value={image}
-                                onChange={e => setImage(e.target.value)}
-                            />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Описание поста</Form.Label>
-                            <Form.Control
-                                as="textarea"
-                                rows={4}
-                                value={text}
-                                onChange={e => setText(e.target.value)}
-                                />
-                        </Form.Group>
-                        <Button variant={"warning"} type="submit">
-                            Добавить
-                        </Button>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Изображение поста</Form.Label>
+                        <Form.Control
+                            type="url"
+                            value={image}
+                            onChange={e => setImage(e.target.value)}
+                        />
                     </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Описание поста</Form.Label>
+                        <Form.Control
+                            as="textarea"
+                            rows={4}
+                            value={text}
+                            onChange={e => setText(e.target.value)}
+                        />
+                    </Form.Group>
+                    <Button variant={"warning"} type="submit">
+                        Добавить
+                    </Button>
                 </Col>
-                <Col xs={12} md={6}></Col>
+                <Col xs={12} md={4}>
+                    <div className="form-preview " style={{
+                        backgroundImage: image ?
+                        `url(${image})` :
+                        "url(https://www.chanchao.com.tw/images/default.jpg)",
+                        width: "370px",
+                        height: "400px"
+                    }}/>
+
+                </Col>
             </Row>
         </Form>
     </>

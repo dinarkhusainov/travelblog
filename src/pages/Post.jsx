@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import {useParams, Link, useNavigate, Navigate} from "react-router-dom";
-import {Trash3} from "react-bootstrap-icons";
+import {Trash3, ArrowLeftSquareFill} from "react-bootstrap-icons";
 import Comments from "../components/Comments/Comments";
 import Ctx from "../Ctx";
 
@@ -35,7 +35,9 @@ export default function Post ({}) {
             })
     }
     return <>
-    <Link to={PATH + "posts"}>Назад</Link>
+        <div className="back" >
+            <Link to={PATH + "posts"}><ArrowLeftSquareFill/> Назад</Link>
+        </div>
         {message && message.author && message.author._id === user._id && <button 
             onClick={remove} 
             className="btn" 
@@ -43,13 +45,15 @@ export default function Post ({}) {
         >
             <Trash3/>
         </button>}
-        <h1>{message.title || "Страница товара"}</h1>
+        <h1 style={{paddingTop:"1rem"}}>{message.title || "Пост"}</h1>
         {/* <p>Автор: {message.author.name}</p> */}
-        <img
-            src={message.image}
-            alt="message"
-        />
-        <p>{message.text}</p>
+        <div className="post">
+            <img
+                src={message.image}
+                alt="message"
+            />
+            <p>{message.text}</p>
+        </div>
         <h2>Комментарии</h2>
         <div className="reviews">
             {message.comments && message.comments.length > 0 && message.comments.map((el, i) => <Comments {...el} key={i}/>)}

@@ -16,7 +16,7 @@ export default ({hook}) => {
             key={p}
             style={{
                 backgroundColor: p === current && "#222",
-                color: p === current && "yellow"
+                color: p === current && "white"
             }}
             onClick={e => {hook.step(p)}}
         >{p}</button>)}
