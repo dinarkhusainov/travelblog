@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import {useParams, Link, useNavigate} from "react-router-dom";
-import {Trash3, ArrowLeftSquareFill} from "react-bootstrap-icons";
+import {Trash3, ArrowLeftSquare,PlusCircle} from "react-bootstrap-icons";
 import Comments from "../components/Comments/Comments";
 import Ctx from "../Ctx";
 
@@ -51,7 +51,11 @@ const Post = () => {
 
     return <>
         <div className="back" >
-            <Link to={PATH + "posts"}><ArrowLeftSquareFill/> Назад</Link>
+            <Link to={PATH + "posts"}>
+                <button className="btn">
+                    <ArrowLeftSquare style={{fontSize: "20px"}}/> Назад
+                </button>
+            </Link>
         </div>
         {message && message.author && message.author._id === user._id && <button 
             onClick={remove} 
@@ -84,7 +88,7 @@ const Post = () => {
                     value={comment}
                     onInput={e => setComment(e.target.value)}
                 />
-                <button type="submit">Добавить отзыв </button>
+                <button style={{border: "solid 1px"}} className="btn" type="submit">Добавить отзыв </button>
             </form>
         </div>
     </>

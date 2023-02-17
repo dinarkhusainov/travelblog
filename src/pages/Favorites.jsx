@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import Card from "../components/Card/Card";
 import {Link} from "react-router-dom";
-import {EmojiFrown} from "react-bootstrap-icons";
+import {EmojiFrown,ArrowLeftSquare} from "react-bootstrap-icons";
 import Ctx from "../Ctx";
 import usePagination from "../hooks/usePagination";
 import Pagination from "../components/Pagination/";
@@ -12,7 +12,14 @@ export default () => {
     return <>
         {favorites.length > 0 
             ? <>
-                <h1>Каталог товаров</h1>
+                    <div className="back" >
+            <Link to={PATH + "posts"}>
+                <button className="btn">
+                    <ArrowLeftSquare style={{fontSize: "20px"}}/> Назад
+                </button>
+            </Link>
+        </div>
+                <h1>Любимые посты</h1>
                 <Pagination hook={paginate}/>
                 <div className="cards">
                     {paginate.setPageData().map((el, i) => <Link to={`/posts/${el._id}`} key={el._id}>
