@@ -38,14 +38,15 @@ function Card ({name, image, likes, title, text, _id}) {
             })
     }
 
-
     return <div className="card">
         <img  src={image} alt={name} />
         <h1>{title}</h1>
+       
         <span className="card__heart" onClick={update}>
+            {likes.length > 0 ? likes.length : ""}
             {
                 like 
-                 ? <BookmarkHeartFill/>
+                 ?  <BookmarkHeartFill/> 
                 : <BookmarkHeart/>
             }
         </span>

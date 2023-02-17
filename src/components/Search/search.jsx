@@ -5,9 +5,7 @@ import {ReactComponent as SearchImg} from "./img/magnifying-glass-solid.svg";
 import {ReactComponent as CloseImg} from "./img/circle-xmark-regular.svg";
 import Ctx from "../../Ctx";
 
-export default () => {
-    // data => posts
-    // searchPosts => setVisiblePosts
+export default function Search ()  {
     const navigate = useNavigate();
     const {posts, setVisiblePosts, PATH} = useContext(Ctx);
     const [text, updateText] = useState("");

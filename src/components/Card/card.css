@@ -1,28 +1,25 @@
 .card {
     box-shadow: 0 0 5px #2226;
-    border-radius: 1em;
     padding-top: 2em;
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 90px 50px 30px 40px;
+    grid-template-columns:  100%;
+    grid-template-rows: 220px 0px 40px;
     position: relative;
-    gap: 1em;
+    gap: 20px;
     justify-items: center;
     align-items: flex-start;
     height: 100%;
     text-align: center;
-    margin: 10px;
+
 }
 .card h1{
-    padding-top: 90px;
     font-size: 20px;
 }
 
 .card img {
-    height: 180px;
+    height: 220px;
     width: 95%;
-
 }
 
 .card__heart {

@@ -32,12 +32,13 @@ function Posts ({data})  {
         } else {
             
             let data = [...visiblePosts];
+            
             switch (el.title) {
                 case "down": 
-                    data.sort((a,b) => a.title - b.title);
+                    data.sort((a,b) => a.title > b.title? -1 : 1 );
                     break;
                 case "up": 
-                    data.sort((a,b) => b.title - a.title);
+                    data.sort((a,b) => a.title > b.title ? 1 : -1);
                     break;
                 case "new": 
                     data = data.filter(d => d.tags.includes("new"));
@@ -47,9 +48,7 @@ function Posts ({data})  {
         }
     }
     useEffect(() => {
-        if (sortPosts.length === 0) {
             setSortPosts(visiblePosts);
-        }
     }, [visiblePosts]); 
     return <>
         {user && <>
