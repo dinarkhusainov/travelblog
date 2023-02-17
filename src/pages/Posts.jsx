@@ -41,7 +41,7 @@ function Posts ({data})  {
                     data.sort((a,b) => a.title > b.title ? 1 : -1);
                     break;
                 case "new": 
-                    data = data.filter(d => d.tags.includes("new"));
+                    data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
                     break;
             }
             setSortPosts(data);
