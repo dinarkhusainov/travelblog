@@ -91,6 +91,7 @@ class Api {
             }
         })
     }
+
     addComment(id, body) {
         return fetch(`${this.path}/posts/comments/${id}`, {
             method: "post",
@@ -101,8 +102,8 @@ class Api {
             body: JSON.stringify(body)
         })
     }
-    deleteComment(id, comment) {
-        return fetch(`${this.path}/posts/comments/${id}/${comment}`, {
+    deleteComment(id, _id) {
+        return fetch(`${this.path}/posts/comments/${id}/${_id}`, {
             method: "delete",
             headers: {
                 "authorization" : `Bearer ${this.token}`
@@ -114,6 +115,13 @@ class Api {
             method: like ? "delete" : "put",
             headers: {
                 "authorization" : `Bearer ${this.token}`
+            }
+        })
+    }
+    getUsers() {
+        return fetch(`${this.path}/users`, {
+            headers: {
+                "authorization": `Bearer ${this.token}`
             }
         })
     }

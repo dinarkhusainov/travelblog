@@ -32,6 +32,8 @@ const App = () => {
     const [posts, setPosts] = useState([]);
     const [visiblePosts, setVisiblePosts] = useState(posts);
     const [favorites, setFavorites] = useState([]);
+    const [users, setUsers] =useState ([]);
+    const [message, setMessage] = useState({});
 
     useEffect(() => {
         if (token) {
@@ -42,6 +44,15 @@ const App = () => {
                 })
         }
     }, []) 
+    useEffect(() => {
+        if (token) {
+        api.getUsers()
+          .then((res) => res.json())
+          .then (data => {
+            setUsers(data);
+          })
+        }
+      }, []);
 
     useEffect(() => {
         setApi(new Api(token));
@@ -85,6 +96,8 @@ const App = () => {
             posts: posts,
             visiblePosts: visiblePosts,
             favorites: favorites,
+            users:users,
+            message:message,
             setUser: setUser,
             setToken: setToken,
             setApi: setApi,
@@ -92,6 +105,8 @@ const App = () => {
             setPosts: setPosts,
             setVisiblePosts: setVisiblePosts,
             setFavorites: setFavorites,
+            setUsers:setUsers,
+            setMessage:setMessage,
             PATH: PATH,
         }}>
             <div className="wrapper">
