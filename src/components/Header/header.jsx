@@ -17,7 +17,7 @@ function Header ()  {
         <Link className="logo" to={PATH}>TRAVEL BLOG</Link>
         <Search/>
         <nav className="menu">
-            {user && <Link to={PATH + "add"}><PlusCircleFill style={{fontSize: "20px"}}/></Link>}
+           
             {user && <Link to={PATH + "favorites"} className="badge-link">
                 <BookmarkHeartFill style={{fontSize: "20px"}}/>
             </Link>}

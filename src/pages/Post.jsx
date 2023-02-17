@@ -66,7 +66,7 @@ const Post = () => {
                 src={message.image}
                 alt="message"
             />
-            {message.author.name ? <p>{message.author.name}</p> : ""}
+            {/* {message.author.name ? <p>{message.author.name}</p> : ""} */}
             <p>{message.text}</p>
         </div>
         <h2>Комментарии</h2>

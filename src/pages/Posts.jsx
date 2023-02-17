@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from "react";
 import Card from "../components/Card/Card";
 import {Link} from "react-router-dom";
-import {EmojiFrown, SortNumericDown, SortNumericUp} from "react-bootstrap-icons";
+import {EmojiFrown, PlusCircle, SortAlphaDown, SortAlphaUp} from "react-bootstrap-icons";
 import Ctx from "../Ctx";
 import usePagination from "../hooks/usePagination";
 import Pagination from "../components/Pagination";
@@ -55,10 +55,13 @@ function Posts ({data})  {
             {visiblePosts.length > 0 
                 ? <>
                     <h1>Все посты</h1>
-                    <div style={st}>
-                        <button className={`btn ${btnType === "up" ? "sort" : ""}`} title="up" onClick={updSort}><SortNumericUp/> А-Я</button>
-                        <button className={`btn ${btnType === "down" ? "sort" : ""}`} title="down" onClick={updSort}><SortNumericDown/> Я-А </button>
-                        <button className={`btn ${btnType === "new" ? "sort" : ""}`} title="new" onClick={updSort}>Новинки</button>
+                    <div className="posts__top">
+                        <div style={st}>
+                            <button className={`btn ${btnType === "up" ? "sort" : ""}`} title="up" onClick={updSort}><SortAlphaDown/> А-Я</button>
+                            <button className={`btn ${btnType === "down" ? "sort" : ""}`} title="down" onClick={updSort}><SortAlphaUp /> Я-А </button>
+                            <button className={`btn ${btnType === "new" ? "sort" : ""}`} title="new" onClick={updSort}>Новинки</button>
+                        </div>
+                        {user && <Link to={PATH + "add"}><button className="btn"><PlusCircle style={{fontSize: "20px"}}/> Создать пост</button></Link>}
                     </div>
                     <Pagination hook={paginate}/>
                     <div className="cards">
