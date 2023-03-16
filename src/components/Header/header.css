@@ -13,9 +13,11 @@ header {
     border-bottom: 1px solid #222;
     outline: none;
 }
+
 .search:focus {
     border-bottom-color: #ffffff;
 }
+
 .menu {
     display: flex;
     gap: 1em;

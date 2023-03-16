@@ -5,13 +5,13 @@
 .logo {
  width: 300px;
 }
+
 .filters {
   display: flex;
   justify-content: center;
   gap: 20px;
   margin-bottom: 20px;
 }
-
 
 .filter {
   display: inline-block;
@@ -28,7 +28,6 @@
   background-color: #222; 
   color: white;
 }
-
 
 .station {
     box-shadow: 0 0 5px #2226;
