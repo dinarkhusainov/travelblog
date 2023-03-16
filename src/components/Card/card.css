@@ -1,0 +1,33 @@
+.card {
+    box-shadow: 0 0 5px #2226;
+    padding-top: 2em;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns:  100%;
+    grid-template-rows: 220px 0px 40px;
+    position: relative;
+    gap: 20px;
+    justify-items: center;
+    align-items: flex-start;
+    height: 100%;
+    text-align: center;
+
+}
+.card h1{
+    font-size: 20px;
+}
+
+.card img {
+    height: 220px;
+    width: 95%;
+}
+
+.card__heart {
+    position: absolute;
+    right: 5px;
+    color: crimson;
+    font-size: 20px;
+}
+.card>.btn {
+    width: max-content;
+}

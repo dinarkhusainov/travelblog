@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/lk8-dogfood/static/css/main.03c593a1.css",
+    "main.js": "/lk8-dogfood/static/js/main.a27710c4.js",
+    "static/media/dogs.png": "/lk8-dogfood/static/media/dogs.a648fef55e1f5bc163a3.png",
+    "static/media/pic.jpg": "/lk8-dogfood/static/media/pic.d968868df6823223ae8f.jpg",
+    "index.html": "/lk8-dogfood/index.html",
+    "static/media/circle-xmark-regular.svg": "/lk8-dogfood/static/media/circle-xmark-regular.8ef6e0a127f37e5c70a1e4bb4cb92f32.svg",
+    "static/media/magnifying-glass-solid.svg": "/lk8-dogfood/static/media/magnifying-glass-solid.06e310dbfbf3ab21da478aef6c037c14.svg",
+    "main.03c593a1.css.map": "/lk8-dogfood/static/css/main.03c593a1.css.map",
+    "main.a27710c4.js.map": "/lk8-dogfood/static/js/main.a27710c4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.03c593a1.css",
+    "static/js/main.a27710c4.js"
+  ]
+}

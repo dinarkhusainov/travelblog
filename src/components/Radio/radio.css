@@ -1,0 +1,53 @@
+ .radio {
+  margin: 0;
+}
+
+.logo {
+ width: 300px;
+}
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.filter {
+  display: inline-block;
+  background-color: lightskyblue;
+  border-radius: 30px;
+  padding: 10px 20px;
+  min-width: 60px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.filter.selected {
+  background-color: #222; 
+  color: white;
+}
+
+
+.station {
+    box-shadow: 0 0 5px #2226;
+    border-radius: 1em;
+    padding:  1em 1em;
+    box-sizing: border-box;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.stationName {
+  display: flex;
+  margin-bottom: 10px;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.name{
+  width: 100%;
+}
