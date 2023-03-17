@@ -14,7 +14,7 @@ function Header ()  {
     }
   
     return <header>
-        <Link className="logo" to={PATH}>TRAVEL BLOG</Link>
+        <Link className="logo" to={PATH + "travelblog"}>TRAVEL BLOG</Link>
         <Search/>
         <nav className="menu">
            

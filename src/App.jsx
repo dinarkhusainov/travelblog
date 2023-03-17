@@ -114,7 +114,7 @@ const App = () => {
                 <Header/>
                 <main className="py-4">
                     <Routes>
-                        <Route path={PATH} element={<Home />}/>
+                        <Route path={PATH + "travelblog"} element={<Home />}/>
                         <Route path={PATH + "posts"} element={<Posts />}/>
                         <Route path={PATH + "profile"} element={<Profile/>}/>
                         <Route path={PATH + "posts/:id"} element={<Post/>}/>
