@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/travelblog/static/css/main.43bb3552.css",
+    "main.js": "/travelblog/static/js/main.28b6052d.js",
+    "static/media/timeToTravel.png": "/travelblog/static/media/timeToTravel.e0acc0e3c0ebd0baf3c8.png",
+    "static/media/radio3.jpg": "/travelblog/static/media/radio3.30d9b9bf3c8e20320ab6.jpg",
+    "static/media/radio.jpg": "/travelblog/static/media/radio.6085ad7266251f3d7e66.jpg",
+    "index.html": "/travelblog/index.html",
+    "static/media/circle-xmark-regular.svg": "/travelblog/static/media/circle-xmark-regular.8ef6e0a127f37e5c70a1e4bb4cb92f32.svg",
+    "static/media/magnifying-glass-solid.svg": "/travelblog/static/media/magnifying-glass-solid.06e310dbfbf3ab21da478aef6c037c14.svg",
+    "main.43bb3552.css.map": "/travelblog/static/css/main.43bb3552.css.map",
+    "main.28b6052d.js.map": "/travelblog/static/js/main.28b6052d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.43bb3552.css",
+    "static/js/main.28b6052d.js"
+  ]
+}
